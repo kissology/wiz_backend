@@ -21,7 +21,7 @@ end
 puts 'Ratings...'
 
 20.times do
-    Rating.find_or_create_by (user_id: User.sample.all, restroom_id: Restroom.sample.all, cleanliness: (rand 1..5),
+    Rating.find_or_create_by (cleanliness: (rand 1..5),
     changing_table: [true, false].sample, handicap_accessable: [true, false].sample, gender_neutral: [true, false].sample, feminine_products: [true, false].sample,
     mirror: [true, false].sample)
 end

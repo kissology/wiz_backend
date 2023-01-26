@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+User.destroy_all
+Restroom.destroy_all
+Rating.destroy_all
+puts "deleted old db"
+puts "seeding new"
 
 User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "temporasit@gmail.com", burough: "Queens")
 User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: "quiipsam@gmail.com", burough: "Brooklyn")

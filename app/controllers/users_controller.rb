@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    # rescue_from ActiveRecord::RecordNotFound, with: :user_not_found
-    # rescue_from ActiveRecord::RecordInvalid, with: :user_invalid
+   
     def user_session
         user = User.find(session[:user_id])
         render json: user
@@ -13,12 +12,12 @@ class UsersController < ApplicationController
       end
 
       def update
-        edit_user =  User.find_by(:username params[:username])
+        edit_user =  User.find_by(:email params[:email])
         edit_user.update(user_params)
         if edit_user
         render json: edit_user, status: :ok
         else 
-            render json:{error:["unable to update credentials"]}
+            render json:{error:["unable to update credentials , Email does not EXIST!"]}
        
       end
 

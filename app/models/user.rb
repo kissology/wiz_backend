@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :restrooms
-    has_many :ratings, through: :user, dependent: :destroy
+    has_many :ratings, dependent: :destroy
+    has_many :restrooms, through: :user
     
 
 end

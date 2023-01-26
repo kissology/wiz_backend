@@ -36,7 +36,7 @@ class RatingsController < ApplicationController
     private
 
     def rating_params
-        params.permit(:cleanliness,  :changing_table, :handicap_accessable, :gender_neutral, :feminine_products, :mirror)
+        params.permit( :user_id , :restroom_id ,:cleanliness,  :changing_table, :handicap_accessable, :gender_neutral, :feminine_products, :mirror)
     end
 
     def finding_rating
@@ -49,5 +49,4 @@ class RatingsController < ApplicationController
         render json: {errors: invalid_rating.record.errors.full_messages}, status: 422
 
     end
-    
 end

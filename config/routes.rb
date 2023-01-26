@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # resources :ratings
+  # resources :restrooms
   resources :restrooms, only:[:index, :show,]
   resources :users, only:[:show, :create, :update ,:destroy]
   resources :ratings #full CRUD capabilties no need to specfy routes 

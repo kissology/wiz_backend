@@ -7,6 +7,8 @@ class CreateRatings < ActiveRecord::Migration[7.0]
       t.boolean :gender_neutral
       t.boolean :feminine_products
       t.boolean :mirror
+      t.belongs_to :restroom, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -13,6 +13,6 @@ Rails.application.routes.draw do
 
   post'/login', to: 'sessions#login'
   delete'/logout/', to: 'sessions#logout'
-  get '/usersession/', to: 'users#user_session'
+  get '/usersession/:id', to: 'users#user_session'
   post '/locations/coordinates', to: 'locations#coordinates'
 end

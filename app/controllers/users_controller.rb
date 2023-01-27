@@ -2,11 +2,12 @@ class UsersController < ApplicationController
    
     def user_session
         user = User.find_by(email: session[:email])
-        if user.valid?
+        if user
         render json: user
-      end
-
-
+        else 
+        render json: { error: "Not authorized" }, status: :unauthorized
+    end
+  end
       def create
         new_user = User.create!(user_params)
         render json: new_user, status: 201
@@ -21,9 +22,6 @@ class UsersController < ApplicationController
       #       render json:{error:["unable to update credentials , Email does not EXIST!"]}
       #   end
       # end
-
-
-
 
       def destroy
         remove_user =  find_user

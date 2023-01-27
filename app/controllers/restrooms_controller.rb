@@ -7,9 +7,7 @@ class RestroomsController < ApplicationController
     def show
         restroom = find_restroom
         render json: restroom, status: 200
-
     end
-
 
 
     private

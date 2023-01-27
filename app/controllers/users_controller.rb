@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
    
     def user_session
-        user = User.find(session[:user_id])
+        user = User.find_by(email: session[:email])
+        if user.valid?
         render json: user
       end
 
@@ -11,15 +12,15 @@ class UsersController < ApplicationController
         render json: new_user, status: 201
       end
 
-      def update
-        edit_user =  User.find_by(:email params[:email])
-        edit_user.update(user_params)
-        if edit_user
-        render json: edit_user, status: :ok
-        else 
-            render json:{error:["unable to update credentials , Email does not EXIST!"]}
-       
-      end
+      # def update
+      #   edit_user =  User.find_by(:email params[:email])
+      #   edit_user.update(user_params)
+      #   if edit_user
+      #   render json: edit_user, status: :ok
+      #   else 
+      #       render json:{error:["unable to update credentials , Email does not EXIST!"]}
+      #   end
+      # end
 
 
 
@@ -38,9 +39,8 @@ class UsersController < ApplicationController
         User.find(params[:id])
       end
 
-      end
       def user_params
         params.permit(:first_name, :last_name, :email, :burough)
       end
       
-end
+    end
